@@ -1,0 +1,13 @@
+version: '2'
+
+services:       
+  app:
+    restart: unless-stopped
+    environment:
+      - PORT=8080
+    image: uchilaka/proxyist:poc
+    build:
+      context: .
+      dockerfile: standalone.dockerfile
+    ports:
+      - "9700:8080"
