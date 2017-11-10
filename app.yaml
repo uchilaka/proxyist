@@ -1,0 +1,19 @@
+service: proxyist
+runtime: nodejs
+env: flex
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 3
+  cool_down_period_sec: 120 # default value
+  cpu_utilization:
+    target_utilization: 0.8
+# Legacy Health Checks
+health_check:
+  enable_health_check: True
+  check_interval_sec: 5
+  timeout_sec: 4
+  unhealthy_threshold: 2
+  healthy_threshold: 2  
+# Updated health checks
+#featureSettings:
+#  splitHealthChecks: true
