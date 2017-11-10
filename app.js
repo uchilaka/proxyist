@@ -12,7 +12,12 @@ const express = require('express'),
 const app = express();
 
 // configure cors: https://www.npmjs.com/package/cors#configuration-options
-const domainWhitelist = ['http://localhost'];
+const domainWhitelist = [
+    // the list of domains that will be allowed to query this service
+    'http://localhost',
+    'http://beacon-manager-faebe.appspot.com',
+    'https://beacon-manager-faebe.appspot.com'
+];
 const corsOptions = {
     origin: function (origin, callback) {
         //console.info('CORS request origin: %s', origin);
