@@ -12,17 +12,22 @@ const express = require('express'),
 const app = express();
 
 // configure cors: https://www.npmjs.com/package/cors#configuration-options
+const domainWhitelist = ['http://localhost'];
 const corsOptions = {
     origin: function (origin, callback) {
-        /*
-        if (whitelist.indexOf(origin) !== -1) {
-            callback(null, true)
-        } else {
-            callback(new Error('Not allowed by CORS'))
+        //console.info('CORS request origin: %s', origin);
+        // allow for chrome extensions
+        if (/^(chrome-extension:\/\/|http:\/\/localhost(\:\d+)?)/.test(origin)) {
+            return callback(null, true);
         }
-        */
+
+        if (domainWhitelist.indexOf(origin) !== -1) {
+            return callback(null, true)
+        }
+
+        return callback(new Error(`Not allowed by CORS - ${origin} is a restricted domain`))
         // all allowed, for now
-        callback(null, true);
+        //callback(null, true);
     },
     // some legacy browsers (IE11, various SmartTVs) choke on 204
     optionalSuccessStatus: 200 // default 204
