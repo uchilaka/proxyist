@@ -66,3 +66,7 @@ GET /fetch/json 404 149 - 0.473 ms
 
 GET /fetch/json - - - - ms
 GET /test/estimote/YmVhY29uLW1hbmFnZW1lbnQtZjlsOmYyMWEyYWFjYjM2OWI3YzJhNGJiYWQ2NGY1MjMwOTZl/json 304 - - 491.077 ms
+POST /fetch/json 200 104435 - 492.539 ms
+--BODY--
+-
+
