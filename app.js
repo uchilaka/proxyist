@@ -5,7 +5,30 @@ const express = require('express'),
     rfs = require('rotating-file-stream'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    app = express();
+    CORS = require('cors')
+    ;
+
+// initialize app
+const app = express();
+
+// configure cors: https://www.npmjs.com/package/cors#configuration-options
+const corsOptions = {
+    origin: function (origin, callback) {
+        /*
+        if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+        */
+        // all allowed, for now
+        callback(null, true);
+    },
+    // some legacy browsers (IE11, various SmartTVs) choke on 204
+    optionalSuccessStatus: 200 // default 204
+}
+// allow CORS for ALL endpoints
+app.use(CORS(corsOptions));
 
 // import middleware
 const proxyRequestHandler = require('./middleware/proxyRequestHandler');
