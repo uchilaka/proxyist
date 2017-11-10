@@ -70,3 +70,83 @@ POST /fetch/json 200 104435 - 492.539 ms
 --BODY--
 -
 
+POST /fetch/json - - - - ms
+--BODY--
+-
+
+POST /fetch/json - - - - ms
+--BODY--
+-
+
+POST /fetch/json - - - - ms
+--BODY--
+-
+
+POST /fetch/json - - - - ms
+--BODY--
+-
+
+POST /fetch/json - - - - ms
+--BODY--
+-
+
+POST /fetch/json - - - - ms
+--BODY--
+-
+
+POST /fetch/json - - - - ms
+--BODY--
+-
+
+POST /fetch/json 200 104435 - 655.989 ms
+--BODY--
+-
+
+POST /fetch/json 200 104435 - 533.483 ms
+--BODY--
+-
+
+POST /fetch/json - - - - ms
+--BODY--
+-
+
+POST /fetch/json - - - - ms
+--BODY--
+-
+
+POST /fetch/json - - - - ms
+--BODY--
+-
+
+POST /fetch/json 200 104435 - 612.000 ms
+--BODY--
+-
+
+POST /fetch/json - - - - ms
+--BODY--
+-
+
+POST /fetch/json - - - - ms
+--BODY--
+-
+
+POST /fetch/json - - - - ms
+--BODY--
+-
+
+POST /fetch/json - - - - ms
+--BODY--
+-
+
+POST /fetch/json 200 104435 - 507.448 ms
+--BODY--
+-
+
+POST /fetch/json 200 104435 - 343.120 ms
+--BODY--
+-
+
+POST /fetch/json 200 104188 - 492.185 ms
+--BODY--
+-
+

@@ -3,6 +3,12 @@ const requestPromise = require('request-promise');
 module.exports = (req, res) => {
     // get auth token 
     const { authToken, format } = req.params;
+    let withMetadata = false;
+
+    if (req.query)
+        withMetadata = req.query.withMetadata;
+
+    console.info('Request body -> %o', req.body);
     // console.info('Basic auth header token: %s', authToken);
     let cf = Object.assign({}, {
         method: 'GET',
@@ -10,7 +16,12 @@ module.exports = (req, res) => {
             accepts: 'application/json'
         },
         resolveWithFullResponse: true
-    }, req.body, req.payload);
+    }, req.body);
+    // process in payload last, if available
+    if (req.payload)
+        cf = Object.assign({}, cf, req.payload);
+
+    console.info('Payload to relay: %o', cf);
 
     let authHeader;
     if (authToken) {
@@ -34,7 +45,11 @@ module.exports = (req, res) => {
                 default:
                     // parse body as JSON
                     body = JSON.parse(response.body);
-                    console.info('Response (JSON) -> %o', body);
+
+                    if (!withMetadata)
+                        return res.json(body);
+
+                    console.info('Response found (JSON) -> %o', (body !== null && body !== undefined));
                     //res.set('Content-Type', 'application/json');
                     return res.json({
                         formatRequested: format,

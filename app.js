@@ -44,9 +44,12 @@ var accessLogStream = rfs('access.log', {
 });
 //app.use(morgan('combined', { stream: accessLogStream }));
 app.use((req, res, next) => {
-    let morganFormat = ':method :url :status :res[content-length] - :response-time ms\\n--BODY--\\n:res[body]\\n';
+    // @TODO figure out how to get body data in here (:res[body] not working)
+    let morganFormat = ':method :url :status :res[content-length] - :response-time ms\\n--BODY--\\n:req[body]\\n';
     switch (String(req.method).toLowerCase()) {
         case 'get':
+            // forcing ALL requests to uset the same logging format, for now    
+            //default:
             morganFormat = ':method :url :status :res[content-length] - :response-time ms';
             break;
     }
@@ -69,16 +72,26 @@ app.get('/_ah/health', (req, res) => {
     });
 });
 
-app.post('/fetch/:format',
+app.all('/fetch/:format',
     (req, res, next) => {
         const { authToken, format } = req.params;
         switch (String(req.method).toLowerCase()) {
+            /*
             case 'get':
                 req.payload = req.query;
                 break;
+            */
 
             case 'post':
-                req.payload = req.body;
+                // do nothing - payload will automatically be processed at next step    
+                break;
+
+            default:
+                res.status = 400;
+                res.statusMessage = "Request method not supported";
+                return res.json({
+                    error: 'Request method not supported'
+                });
         }
         console.info('(Passthrough) Basic auth header token: %s', authToken);
         next();
