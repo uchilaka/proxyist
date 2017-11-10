@@ -32,9 +32,9 @@ const corsOptions = {
             return callback(null, true)
         }
 
-        return callback(new Error(`Not allowed by CORS - ${origin} is a restricted domain`))
+        //return callback(new Error(`Not allowed by CORS - ${origin} is a restricted domain`))
         // all allowed, for now
-        //callback(null, true);
+        callback(null, true);
     },
     // some legacy browsers (IE11, various SmartTVs) choke on 204
     optionalSuccessStatus: 200 // default 204
