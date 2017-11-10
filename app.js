@@ -69,7 +69,7 @@ app.get('/_ah/health', (req, res) => {
     });
 });
 
-app.all('/fetch/:format',
+app.post('/fetch/:format',
     (req, res, next) => {
         const { authToken, format } = req.params;
         switch (String(req.method).toLowerCase()) {
