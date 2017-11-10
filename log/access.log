@@ -1,0 +1,41 @@
+GET /test/estimote/YmVhY29uLW1hbmFnZW1lbnQtZjlsOmYyMWEyYWFjYjM2OWI3YzJhNGJiYWQ2NGY1MjMwOTZl 304 - - 570.743 ms
+GET /test/estimote/YmVhY29uLW1hbmFnZW1lbnQtZjlsOmYyMWEyYWFjYjM2OWI3YzJhNGJiYWQ2NGY1MjMwOTZl 304 - - 394.369 ms
+
+--BODY--
+
+ -
+GET /test/estimote/YmVhY29uLW1hbmFnZW1lbnQtZjlsOmYyMWEyYWFjYjM2OWI3YzJhNGJiYWQ2NGY1MjMwOTZl 304 - - 427.166 ms
+--BODY--
+-
+
+
+GET /test/estimote/YmVhY29uLW1hbmFnZW1lbnQtZjlsOmYyMWEyYWFjYjM2OWI3YzJhNGJiYWQ2NGY1MjMwOTZl 404 225 - 6.708 ms
+--BODY--
+-
+
+
+GET /test/estimote/YmVhY29uLW1hbmFnZW1lbnQtZjlsOmYyMWEyYWFjYjM2OWI3YzJhNGJiYWQ2NGY1MjMwOTZl/json 500 2450 - 2.842 ms
+--BODY--
+-
+
+
+GET /test/estimote/YmVhY29uLW1hbmFnZW1lbnQtZjlsOmYyMWEyYWFjYjM2OWI3YzJhNGJiYWQ2NGY1MjMwOTZl/json 200 140572 - 558.090 ms
+--BODY--
+-
+
+
+GET /test/estimote/YmVhY29uLW1hbmFnZW1lbnQtZjlsOmYyMWEyYWFjYjM2OWI3YzJhNGJiYWQ2NGY1MjMwOTZl/json 200 116316 - 462.703 ms
+--BODY--
+-
+
+
+GET /test/estimote/YmVhY29uLW1hbmFnZW1lbnQtZjlsOmYyMWEyYWFjYjM2OWI3YzJhNGJiYWQ2NGY1MjMwOTZl/json 200 104188 - 545.202 ms
+--BODY--
+-
+
+
+GET /test/estimote/YmVhY29uLW1hbmFnZW1lbnQtZjlsOmYyMWEyYWFjYjM2OWI3YzJhNGJiYWQ2NGY1MjMwOTZl/json 304 - - 505.682 ms
+--BODY--
+-
+
+
