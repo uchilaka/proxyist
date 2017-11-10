@@ -15,6 +15,8 @@ const app = express();
 const domainWhitelist = [
     // the list of domains that will be allowed to query this service
     'http://localhost',
+    'http://proxyist.incubationapps.com/',
+    'https://proxyist.incubationapps.com/',
     'http://beacon-manager-faebe.appspot.com',
     'https://beacon-manager-faebe.appspot.com'
 ];
