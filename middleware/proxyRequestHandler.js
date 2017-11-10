@@ -4,16 +4,27 @@ module.exports = (req, res) => {
     // get auth token 
     const { authToken, format } = req.params;
     // console.info('Basic auth header token: %s', authToken);
-    // build request
-    const cf = {
-        uri: 'https://cloud.estimote.com/v2/devices',
+    let cf = Object.assign({}, {
         method: 'GET',
         headers: {
-            Authorization: `Basic ${authToken}`
+            accepts: 'application/json'
         },
-        //json: true,
         resolveWithFullResponse: true
-    };
+    }, req.body, req.payload);
+
+    let authHeader;
+    if (authToken) {
+        const tokenparts = authToken.split(/[\s:,]/);
+        if (tokenparts.length > 1) {
+            authHeader = `${tokenparts[0]} ${tokenparts[1]}`;
+        } else
+            authHeader = `Basic ${tokenparts[0]}`;
+    }
+
+    if (authHeader)
+        cf['headers']['Authorization'] = authHeader;
+
+    // build request
     requestPromise(cf)
         .then((response) => {
             let body;
@@ -25,7 +36,11 @@ module.exports = (req, res) => {
                     body = JSON.parse(response.body);
                     console.info('Response (JSON) -> %o', body);
                     //res.set('Content-Type', 'application/json');
-                    return res.json(body);
+                    return res.json({
+                        formatRequested: format,
+                        request: cf,
+                        json: body
+                    });
             }
             // log response to files
             return res.send(body);

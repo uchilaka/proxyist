@@ -39,3 +39,28 @@ GET /test/estimote/YmVhY29uLW1hbmFnZW1lbnQtZjlsOmYyMWEyYWFjYjM2OWI3YzJhNGJiYWQ2N
 -
 
 
+GET /test/estimote/YmVhY29uLW1hbmFnZW1lbnQtZjlsOmYyMWEyYWFjYjM2OWI3YzJhNGJiYWQ2NGY1MjMwOTZl/json 304 - - 623.420 ms
+--BODY--
+-
+
+
+GET /test/estimote/YmVhY29uLW1hbmFnZW1lbnQtZjlsOmYyMWEyYWFjYjM2OWI3YzJhNGJiYWQ2NGY1MjMwOTZl/json 200 104448 - 562.964 ms
+--BODY--
+-
+
+
+GET /test/estimote/YmVhY29uLW1hbmFnZW1lbnQtZjlsOmYyMWEyYWFjYjM2OWI3YzJhNGJiYWQ2NGY1MjMwOTZl/json 200 104464 - 523.503 ms
+--BODY--
+-
+
+
+GET /test/estimote/json 404 157 - 1.331 ms
+--BODY--
+-
+
+
+GET /fetch/json 404 149 - 0.473 ms
+--BODY--
+-
+
+
