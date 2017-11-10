@@ -22,6 +22,9 @@ const domainWhitelist = [
 ];
 const corsOptions = {
     origin: function (origin, callback) {
+        // allow if no remote origin
+        if (!origin)
+            return callback(null, true);
         //console.info('CORS request origin: %s', origin);
         // allow for chrome extensions
         if (/^(chrome-extension:\/\/|http:\/\/localhost(\:\d+)?)/.test(origin)) {
