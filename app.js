@@ -22,6 +22,10 @@ const domainWhitelist = [
 ];
 const corsOptions = {
     origin: function (origin, callback) {
+        console.log(`Will check for CORS OK per origin (${origin})`);
+        // all allowed, for now
+        return callback(null, true);
+        /*
         // allow if no remote origin
         if (!origin)
             return callback(null, true);
@@ -36,8 +40,7 @@ const corsOptions = {
         }
 
         //return callback(new Error(`Not allowed by CORS - ${origin} is a restricted domain`))
-        // all allowed, for now
-        callback(null, true);
+        */
     },
     // some legacy browsers (IE11, various SmartTVs) choke on 204
     optionalSuccessStatus: 200 // default 204
